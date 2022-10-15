@@ -1,5 +1,5 @@
 import { Excercise } from "../types/excercise";
-import {CHESTS} from "../types/body"
+import {BICEPS, CHESTS} from "../types/body"
 
 interface IExcerciseList {
     [key: string]: Excercise
@@ -83,5 +83,52 @@ export const CHESTS_EXCERCISES: IExcerciseList = {
 
 
 export const BICEPS_EXCERCISES: IExcerciseList = {
-    
+  "Dumbells Biceps Curl": {
+		name: "Dumbells Biceps Curl",
+		bodyPart: BICEPS,
+		instructions: [
+				"Repeat."
+		],
+		isSuperSet: false
+	},
+	"Bands Biceps Curl": {
+		name: "Bands Biceps Curl",
+		bodyPart: BICEPS,
+		instructions: [
+				"Repeat."
+		],
+		isSuperSet: false
+	},
+	"TRX Biceps Curl": {
+		name: "TRX Biceps Curl",
+		bodyPart: BICEPS,
+		instructions: [
+				"Repeat."
+		],
+		isSuperSet: false
+	},
+	"Dumbells Hammer Biceps Curl": {
+		name: "Dumbells Hammer Biceps Curl",
+		bodyPart: BICEPS,
+		instructions: [
+				"Repeat."
+		],
+		isSuperSet: false
+	},
+	"TRX Hammer Biceps Curl": {
+		name: "TRX Hammer Biceps Curl",
+		bodyPart: BICEPS,
+		instructions: [
+				"Repeat."
+		],
+		isSuperSet: false
+	},
+	"Band Single Bicep Curl": {
+		name: "Band Single Bicep Curl",
+		bodyPart: BICEPS,
+		instructions: [
+				"Repeat."
+		],
+		isSuperSet: false
+	}
 }
