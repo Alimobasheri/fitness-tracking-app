@@ -16,7 +16,7 @@ export const defaultChestAndBicepsSessions: WorkoutSessions = {
                 CHESTS_EXCERCISES["Dumbells Bench Chests Press"],
                 CHESTS_EXCERCISES["TRX Chests Press"],
                 CHESTS_EXCERCISES["Dumbells Bench Chests Flye"],
-                CHESTS_EXCERCISES["Dumbells Bench Chests Flye"],
+                CHESTS_EXCERCISES["TRX Chests Flye"],
             ]
         },
         {
