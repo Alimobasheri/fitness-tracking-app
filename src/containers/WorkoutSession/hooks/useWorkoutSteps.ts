@@ -26,7 +26,15 @@ export const useWorkoutSteps = ({excercises, restTime, restFrequency=1}: Workout
       }
       let setsCount: number = exc.setsCount | 1
       excSteps = multiplyArray(excSteps, setsCount, (excs, i) => {
-        return excs.map(ex => ({...ex, setNumber: i+1}))
+        const excsWithRest: Excercise[] = excs
+        if (restFrequency % (i+1) === 0) {
+          const restExc: Excercise = {
+            name: "Rest",
+            isRest: true
+          }
+          excsWithRest.push(restExc)
+        }
+        return excsWithRest.map(ex => ({...ex, setNumber: i+1}))
       })
       steps = steps.concat(excSteps)
     })
@@ -40,7 +48,9 @@ export const useWorkoutSteps = ({excercises, restTime, restFrequency=1}: Workout
     return numberOfTotalExcercises - currentExcerciseIndex;
   }, [currentExcerciseIndex, numberOfTotalExcercises]);
 
-  const gotoNextStep = () => setCurrentExcerciseIndex(currentExcerciseIndex + 1)
+  const gotoNextStep = () => {
+    if(currentExcerciseIndex < workoutSteps.length - 1) setCurrentExcerciseIndex(currentExcerciseIndex + 1)
+  }
   return {
     currentExcerciseIndex,
     workoutSteps,
