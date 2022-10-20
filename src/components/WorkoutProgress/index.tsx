@@ -29,7 +29,7 @@ export const WorkoutProgress: FC<WorkoutProgressProps> = ({
       locations={[progress, progress, 1]}
       style={[styles.root]}
     >
-      <LinearProgress value={progress} variant={"determinate"} />
+      <LinearProgress value={progress} variant={"determinate"} animation={{duration: 100}}/>
       <View style={styles.wrapper}>
         <View style={styles.leftWrapper}>
           <Text h1 style={styles.leftNumber}>
