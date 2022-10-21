@@ -90,8 +90,8 @@ export const WorkoutExcercise: FC<WorkoutExcerciseProps> = ({
   };
   return (
     <Pressable
-      onTouchStart={handlePressIn}
-      onTouchEnd={handlePressOut}
+      onLongPress={handlePressIn}
+      onPressOut={handlePressOut}
       style={styles.root}
     >
       <View
