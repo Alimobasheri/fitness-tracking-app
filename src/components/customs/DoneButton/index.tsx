@@ -57,14 +57,12 @@ export const DoneButton: FC<DoneButtonProps> = ({
     const backgroundColor = interpolateColor(
       buttonWidth.value,
       [initialWidth, closedButtonWidth],
-      [theme.colors.primary, theme.colors.white]
+      [theme.colors.white, theme.colors.primary]
     );
     return {
       width: buttonWidth.value > 0 ? buttonWidth.value : 200,
       justifyContent: "center",
       borderRadius,
-      borderWidth: 1,
-      borderColor: theme.colors.primary,
       marginHorizontal: 36,
       overflow: "hidden",
       backgroundColor,
@@ -76,7 +74,7 @@ export const DoneButton: FC<DoneButtonProps> = ({
     const color = interpolateColor(
       buttonWidth.value,
       [initialWidth, closedButtonWidth],
-      [theme.colors.white, theme.colors.primary]
+      [theme.colors.primary, theme.colors.white]
     );
     const opacity = interpolate(
       buttonWidth.value,
@@ -145,7 +143,7 @@ export const DoneButton: FC<DoneButtonProps> = ({
             name={"checkmark"}
             type={"ionicon"}
             size={30}
-            color={theme.colors.primary}
+            color={theme.colors.white}
           />
         </Animated.View>
       )}
