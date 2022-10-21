@@ -7,6 +7,7 @@ import { WorkoutSessions } from "../../types/workout";
 import styles from "./styles";
 import { WorkoutExcercise } from "../../components/WorkoutExcercise";
 import { useWorkoutSteps } from "./hooks/useWorkoutSteps";
+import { WorkoutFooter } from "../../components/WorkoutFooter";
 
 interface WorkoutSessionProps {
   workoutSession?: WorkoutSessions;
@@ -31,10 +32,8 @@ export const WorkoutSession: FC<WorkoutSessionProps> = ({
         numberOfExcercisesLeft={numberOfExcercisesLeft}
         numberOfTotalExcercises={numberOfTotalExcercises}
       />
-      <WorkoutExcercise
-        excercise={workoutSteps[currentExcerciseIndex]}
-        gotoNextStep={gotoNextStep}
-      />
+      <WorkoutExcercise excercise={workoutSteps[currentExcerciseIndex]} />
+      <WorkoutFooter gotoNextStep={gotoNextStep} />
     </View>
   );
 };

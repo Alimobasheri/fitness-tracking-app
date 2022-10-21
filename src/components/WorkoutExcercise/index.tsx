@@ -6,11 +6,9 @@ import styles from "./styles";
 
 interface WorkoutExcerciseProps {
   excercise: Excercise;
-  gotoNextStep: () => void;
 }
 export const WorkoutExcercise: FC<WorkoutExcerciseProps> = ({
   excercise,
-  gotoNextStep,
 }: WorkoutExcerciseProps) => {
   const { theme } = useTheme();
   return (
@@ -51,18 +49,6 @@ export const WorkoutExcercise: FC<WorkoutExcerciseProps> = ({
           }}
         />
       )}
-      <View style={styles.bottomSection}>
-        <Button
-          type={"outline"}
-          containerStyle={styles.doneButtonContainerStyle}
-          buttonStyle={styles.doneButtonStyle}
-          onPress={gotoNextStep}
-          color={theme.colors.white}
-          titleStyle={{ color: theme.colors.primary }}
-        >
-          Done
-        </Button>
-      </View>
     </View>
   );
 };

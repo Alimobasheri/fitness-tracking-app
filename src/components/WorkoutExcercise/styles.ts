@@ -11,17 +11,7 @@ export default StyleSheet.create({
   excNameWrapper: {
     marginBottom: 12,
   },
-  bottomSection: {},
   excStatWrapper: {
     marginTop: 12,
-  },
-  doneButtonContainerStyle: {
-    marginHorizontal: 36,
-    borderRadius: 12,
-  },
-  doneButtonStyle: {
-    padding: 24,
-    borderRadius: 12,
-    borderWidth: 1,
   },
 });
