@@ -25,9 +25,7 @@ export const WorkoutSession: FC<WorkoutSessionProps> = ({
     gotoNextStep,
   } = useWorkoutSteps(workoutSession);
   return (
-    <View
-      style={[styles.root, { paddingTop: insets.top, bottom: insets.bottom }]}
-    >
+    <View style={[styles.root, { paddingTop: insets.top }]}>
       <WorkoutProgress
         numberOfExcercisesLeft={numberOfExcercisesLeft}
         numberOfTotalExcercises={numberOfTotalExcercises}
