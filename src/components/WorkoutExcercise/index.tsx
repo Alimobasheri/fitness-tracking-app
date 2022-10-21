@@ -40,6 +40,17 @@ export const WorkoutExcercise: FC<WorkoutExcerciseProps> = ({
           </Text>
         </View>
       </View>
+      {excercise.imageSrc && (
+        <Image
+          source={excercise.imageSrc}
+          style={{
+            flex: 1,
+            height: "100%",
+            maxWidth: "100%",
+            resizeMode: "contain",
+          }}
+        />
+      )}
       <View style={styles.bottomSection}>
         <Button
           type={"outline"}
