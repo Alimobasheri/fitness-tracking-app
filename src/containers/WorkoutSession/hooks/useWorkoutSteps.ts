@@ -52,11 +52,14 @@ export const useWorkoutSteps = ({
     return steps;
   }, [JSON.stringify(excercises)]);
   const numberOfTotalExcercises: number = useMemo(
-    () => workoutSteps.length,
+    () => workoutSteps.filter((exc) => !exc.isRest).length,
     [workoutSteps.length]
   );
   const numberOfExcercisesLeft: number = useMemo(() => {
-    return numberOfTotalExcercises - currentExcerciseIndex - 1;
+    const restSteps = workoutSteps.filter(
+      (exc, i) => exc.isRest && i < currentExcerciseIndex
+    ).length;
+    return numberOfTotalExcercises - (currentExcerciseIndex - restSteps) - 1;
   }, [currentExcerciseIndex, numberOfTotalExcercises]);
 
   const gotoNextStep = () => {
