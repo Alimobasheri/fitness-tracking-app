@@ -4,13 +4,24 @@ export default StyleSheet.create({
   root: {
     flex: 1,
     justifyContent: "space-between",
-    paddingVertical: 24,
-    paddingHorizontal: 36
+    paddingVertical: 12,
+    paddingHorizontal: 36,
   },
   topSection: {},
-  excNameWrapper: {},
+  excNameWrapper: {
+    marginBottom: 12,
+  },
   bottomSection: {},
   excStatWrapper: {
-    marginTop: 24
-  }
-})
+    marginTop: 12,
+  },
+  doneButtonContainerStyle: {
+    marginHorizontal: 36,
+    borderRadius: 12,
+  },
+  doneButtonStyle: {
+    padding: 24,
+    borderRadius: 12,
+    borderWidth: 1,
+  },
+});
