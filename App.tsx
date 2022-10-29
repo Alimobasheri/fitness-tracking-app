@@ -3,7 +3,10 @@ import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { WorkoutSession } from "./src/containers/WorkoutSession";
 import { ThemeProvider, createTheme } from "@rneui/themed";
-import { defaultChestAndBicepsSessions } from "./src/constants/sessions";
+import {
+  defaultChestAndBicepsSessions,
+  defaultHIITSession,
+} from "./src/constants/sessions";
 
 const theme = createTheme({});
 
@@ -12,7 +15,7 @@ export default function App() {
     <SafeAreaProvider>
       <ThemeProvider theme={theme}>
         <View style={styles.container}>
-          <WorkoutSession workoutSession={defaultChestAndBicepsSessions} />
+          <WorkoutSession workoutSession={defaultHIITSession} />
           <StatusBar style="auto" />
         </View>
       </ThemeProvider>
