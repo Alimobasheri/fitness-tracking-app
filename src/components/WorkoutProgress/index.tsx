@@ -41,54 +41,62 @@ export const WorkoutProgress: FC<WorkoutProgressProps> = ({
     if (newProgress !== progress) setProgress(newProgress);
   }, [numberOfExcercisesLeft, numberOfTotalExcercises]);
   return (
-    <LinearGradient
-      colors={["rgba(32, 137, 220, 0.2)", "transparent", "transparent"]}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 0 }}
-      locations={[progress, progress, 1]}
-      style={[styles.root]}
-    >
-      <LinearProgress
-        value={progress}
-        variant={"determinate"}
-        animation={{ duration: 100 }}
-        color={theme.colors.primary}
-      />
-      <View style={styles.wrapper}>
-        <View style={styles.leftWrapper}>
-          <Text h1 style={styles.leftNumber} adjustsFontSizeToFit>
-            {numberWithZeroPlace(numberOfExcercisesLeft)}
-          </Text>
-          <View style={styles.leftTextWrapper}>
-            <Text h4 h4Style={[styles.leftText, { color: theme.colors.grey2 }]}>
-              Excercises
+    <View style={{ backgroundColor: theme.colors.white }}>
+      <LinearGradient
+        colors={["rgba(32, 137, 220, 0.2)", "transparent", "transparent"]}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 0 }}
+        locations={[progress, progress, 1]}
+        style={[styles.root]}
+      >
+        {/* <LinearProgress
+          value={progress}
+          variant={"determinate"}
+          animation={{ duration: 100 }}
+          color={theme.colors.primary}
+        /> */}
+        <View style={styles.wrapper}>
+          <View style={styles.leftWrapper}>
+            <Text h1 style={styles.leftNumber} adjustsFontSizeToFit>
+              {numberWithZeroPlace(numberOfExcercisesLeft)}
             </Text>
-            <Text h4 h4Style={[styles.leftText, { color: theme.colors.grey2 }]}>
-              Left
+            <View style={styles.leftTextWrapper}>
+              <Text
+                h4
+                h4Style={[styles.leftText, { color: theme.colors.grey2 }]}
+              >
+                Excercises
+              </Text>
+              <Text
+                h4
+                h4Style={[styles.leftText, { color: theme.colors.grey2 }]}
+              >
+                Left
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View style={styles.timeWrapper}>
+          <Text
+            h4
+            h4Style={{ ...styles.timetitleText, color: theme.colors.grey2 }}
+          >
+            Total Time
+          </Text>
+          <View style={styles.timeBody}>
+            <Text h4 h4Style={styles.timeText}>
+              {minutesAndSeconds[0]}
+            </Text>
+            <Text h4 h4Style={styles.timeText}>
+              :
+            </Text>
+            <Text h4 h4Style={styles.timeText}>
+              {minutesAndSeconds[1]}
             </Text>
           </View>
         </View>
-      </View>
-      <View style={styles.timeWrapper}>
-        <Text
-          h4
-          h4Style={{ ...styles.timetitleText, color: theme.colors.grey2 }}
-        >
-          Total Time
-        </Text>
-        <View style={styles.timeBody}>
-          <Text h4 h4Style={styles.timeText}>
-            {minutesAndSeconds[0]}
-          </Text>
-          <Text h4 h4Style={styles.timeText}>
-            :
-          </Text>
-          <Text h4 h4Style={styles.timeText}>
-            {minutesAndSeconds[1]}
-          </Text>
-        </View>
-      </View>
-    </LinearGradient>
+      </LinearGradient>
+    </View>
   );
 };
 

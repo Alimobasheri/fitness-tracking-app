@@ -6,5 +6,9 @@ export default StyleSheet.create({
   },
   doneButtonStyle: {
     padding: 24,
+    maxWidth: 70,
+    width: 70,
+    maxHeight: 70,
+    height: 70,
   },
 });

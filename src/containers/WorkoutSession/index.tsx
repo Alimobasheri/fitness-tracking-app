@@ -8,6 +8,8 @@ import styles from "./styles";
 import { WorkoutExcercise } from "../../components/WorkoutExcercise";
 import { useWorkoutSteps } from "./hooks/useWorkoutSteps";
 import { WorkoutFooter } from "../../components/WorkoutFooter";
+import { StatusBar } from "expo-status-bar";
+import { useTheme } from "@rneui/themed";
 
 interface WorkoutSessionProps {
   workoutSession?: WorkoutSessions;
@@ -17,6 +19,7 @@ export const WorkoutSession: FC<WorkoutSessionProps> = ({
   workoutSession,
 }: WorkoutSessionProps) => {
   const insets = useSafeAreaInsets();
+  const { theme } = useTheme();
   const {
     currentExcerciseIndex,
     workoutSteps,
@@ -25,13 +28,22 @@ export const WorkoutSession: FC<WorkoutSessionProps> = ({
     gotoNextStep,
   } = useWorkoutSteps(workoutSession);
   return (
-    <View style={[styles.root, { paddingTop: insets.top }]}>
+    <View
+      style={[
+        styles.root,
+        { paddingTop: insets.top, backgroundColor: theme.colors.primary },
+      ]}
+    >
+      <StatusBar style="dark" />
       <WorkoutProgress
         numberOfExcercisesLeft={numberOfExcercisesLeft}
         numberOfTotalExcercises={numberOfTotalExcercises}
       />
       <WorkoutExcercise excercise={workoutSteps[currentExcerciseIndex]} />
-      <WorkoutFooter gotoNextStep={gotoNextStep} />
+      <WorkoutFooter
+        gotoNextStep={gotoNextStep}
+        excercise={workoutSteps[currentExcerciseIndex]}
+      />
     </View>
   );
 };

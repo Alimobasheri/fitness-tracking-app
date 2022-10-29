@@ -4,7 +4,6 @@ export default StyleSheet.create({
   root: {
     width: "100%",
     minHeight: 60,
-    marginTop: 24,
   },
   wrapper: {
     width: "100%",

@@ -1,10 +1,11 @@
 import { Button, Icon, useTheme } from "@rneui/themed";
-import { FC, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { LayoutChangeEvent } from "react-native";
 import Animated, {
   Easing,
   interpolate,
   interpolateColor,
+  useAnimatedProps,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
@@ -13,10 +14,14 @@ import styles from "./styles";
 
 interface DoneButtonProps {
   onPress: () => void;
+  isTimerBased?: boolean;
+  timerLimit?: number;
 }
 
 export const DoneButton: FC<DoneButtonProps> = ({
   onPress,
+  isTimerBased,
+  timerLimit,
 }: DoneButtonProps) => {
   const { theme } = useTheme();
   const buttonWidth = useSharedValue(0);
@@ -24,6 +29,8 @@ export const DoneButton: FC<DoneButtonProps> = ({
   const [initialHeight, setInitialHeight] = useState(0);
   const [closedButtonWidth, setClosedButtonWidth] = useState(0);
   const [showCheckmark, setShowCheckmark] = useState<boolean>(false);
+  const [timer, setTimer] = useState<number | undefined>(timerLimit);
+  const timerRef = useRef(timer);
   const [state, setState] = useState<string>("INITIAL");
   const onLayout = ({
     nativeEvent: {
@@ -35,7 +42,7 @@ export const DoneButton: FC<DoneButtonProps> = ({
       setState("NOT_INITIAL");
       setInitialWidth(width);
       setInitialHeight(height);
-      setClosedButtonWidth(height);
+      setClosedButtonWidth(height / 2);
     }
   };
 
@@ -57,10 +64,10 @@ export const DoneButton: FC<DoneButtonProps> = ({
     const backgroundColor = interpolateColor(
       buttonWidth.value,
       [initialWidth, closedButtonWidth],
-      [theme.colors.white, theme.colors.primary]
+      [theme.colors.white, theme.colors.white]
     );
     return {
-      width: buttonWidth.value > 0 ? buttonWidth.value : 200,
+      width: 70,
       justifyContent: "center",
       borderRadius,
       marginHorizontal: 36,
@@ -92,7 +99,7 @@ export const DoneButton: FC<DoneButtonProps> = ({
     const opacity = interpolate(
       buttonWidth.value,
       [initialWidth, closedButtonWidth],
-      [0.5, 1]
+      [0.2, 1]
     );
     return {
       opacity,
@@ -112,6 +119,7 @@ export const DoneButton: FC<DoneButtonProps> = ({
 
   const handlePress = () => {
     "worklet";
+    if (isTimerBased && timer > 0) return;
     buttonWidth.value = withTiming(closedButtonWidth, {
       duration: 300,
       easing: Easing.bezier(0.76, 0, 0.24, 1),
@@ -120,6 +128,19 @@ export const DoneButton: FC<DoneButtonProps> = ({
     setTimeout(onPress, 500);
     setTimeout(returnToInitialState, 600);
   };
+
+  useEffect(() => {
+    let timerInterval: NodeJS.Timer = null;
+    if (isTimerBased && typeof timerLimit === "number") {
+      setTimer(timerLimit);
+      timerInterval = setInterval(() => setTimer(timerRef.current - 1), 1000);
+    }
+    return () => clearInterval(timerInterval);
+  }, [timerLimit]);
+
+  useEffect(() => {
+    timerRef.current = timer;
+  }, [timer]);
   return (
     <Animated.View
       onLayout={onLayout}
@@ -134,7 +155,7 @@ export const DoneButton: FC<DoneButtonProps> = ({
         titleStyle={{ color: theme.colors.primary }}
       >
         <Animated.Text style={textStyle} numberOfLines={1} adjustsFontSizeToFit>
-          Done
+          {isTimerBased && timer > 0 ? timer : "Done"}
         </Animated.Text>
       </Button>
       {showCheckmark && (
@@ -143,7 +164,7 @@ export const DoneButton: FC<DoneButtonProps> = ({
             name={"checkmark"}
             type={"ionicon"}
             size={30}
-            color={theme.colors.white}
+            color={theme.colors.primary}
           />
         </Animated.View>
       )}
