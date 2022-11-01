@@ -12,6 +12,8 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import { Excercise } from "../../types/excercise";
+import LottieView from "lottie-react-native";
+import DrinkingWaterLottie from "../../../assets/drinking-water-lottie.json";
 import styles from "./styles";
 
 interface WorkoutExcerciseProps {
@@ -42,6 +44,7 @@ export const WorkoutExcercise: FC<WorkoutExcerciseProps> = ({
       flexDirection: "column",
       paddingHorizontal: 36,
       backgroundColor: bgColor,
+      position: "relative",
     };
   });
 
@@ -133,6 +136,22 @@ export const WorkoutExcercise: FC<WorkoutExcerciseProps> = ({
               {excercise.name}
             </Text>
           </View>
+          {excercise.isRest && (
+            <LottieView
+              autoPlay
+              // ref={animation}
+              style={{
+                width: "100%",
+                // height: "auto",
+                position: "absolute",
+                top: "10%",
+                left: 0,
+                backgroundColor: "transparent",
+              }}
+              // Find more Lottie files at https://lottiefiles.com/featured
+              source={DrinkingWaterLottie}
+            />
+          )}
           {!excercise.isRest && (
             <View style={styles.excStatWrapper}>
               <Animated.View style={wrappersStyle}>
