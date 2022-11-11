@@ -42,6 +42,8 @@ export const useWorkoutSteps = ({
           const restExc: Excercise = {
             name: "Rest",
             isRest: true,
+            isTimerBased: typeof restTime === "number",
+            timerLimit: restTime,
           };
           excsWithRest.push(restExc);
         }

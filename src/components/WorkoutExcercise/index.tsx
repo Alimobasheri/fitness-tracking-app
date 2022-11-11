@@ -173,25 +173,27 @@ export const WorkoutExcercise: FC<WorkoutExcerciseProps> = ({
                   Sets: {excercise.setNumber} of {excercise.setsCount}
                 </Text>
               </Animated.View>
-              <Animated.View style={wrappersStyle}>
-                <Icon
-                  size={20}
-                  type={"ionicons"}
-                  name={"repeat"}
-                  color={theme.colors.warning}
-                  containerStyle={{ marginRight: 6 }}
-                />
-                <Text
-                  h4
-                  h4Style={{
-                    fontSize: 16,
-                    color: theme.colors.white,
-                    fontWeight: "400",
-                  }}
-                >
-                  Reps: {excercise.repsCount}
-                </Text>
-              </Animated.View>
+              {excercise.repsCount && (
+                <Animated.View style={wrappersStyle}>
+                  <Icon
+                    size={20}
+                    type={"ionicons"}
+                    name={"repeat"}
+                    color={theme.colors.warning}
+                    containerStyle={{ marginRight: 6 }}
+                  />
+                  <Text
+                    h4
+                    h4Style={{
+                      fontSize: 16,
+                      color: theme.colors.white,
+                      fontWeight: "400",
+                    }}
+                  >
+                    Reps: {excercise.repsCount}
+                  </Text>
+                </Animated.View>
+              )}
             </View>
           )}
         </View>
