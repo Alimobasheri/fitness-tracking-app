@@ -103,12 +103,12 @@ export const defaultHIITSession: WorkoutSessions = {
 
 export const DEFAULT_SESSIONS: WorkoutSessionObject[] = [
   {
-    name: "Chest And Biceps Session",
+    name: "Chest And Biceps",
     session: defaultChestAndBicepsSessions,
     sessionId: 1,
   },
   {
-    name: "Abs HIIT Session",
+    name: "Abs HIIT",
     session: defaultHIITSession,
     sessionId: 2,
   },

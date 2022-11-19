@@ -13,7 +13,7 @@ const SessionsList: FC<SessionsListProps> = ({
   navigate,
 }: SessionsListProps) => {
   const redirect = useCallback(
-    (sessionId: number) => navigate("Session", { sessionId }),
+    (sessionId: number) => navigate("SessionOverview", { sessionId }),
     [JSON.stringify(sessions), navigate]
   );
   return (
