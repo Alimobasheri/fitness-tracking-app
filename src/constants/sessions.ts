@@ -1,4 +1,4 @@
-import { WorkoutSessions } from "../types/workout";
+import { WorkoutSessionObject, WorkoutSessions } from "../types/workout";
 import { ABS, CHESTS } from "../types/body";
 import { BICEPS_EXCERCISES, CHESTS_EXCERCISES } from "./excercises";
 
@@ -100,3 +100,16 @@ export const defaultHIITSession: WorkoutSessions = {
     },
   ],
 };
+
+export const DEFAULT_SESSIONS: WorkoutSessionObject[] = [
+  {
+    name: "Chest And Biceps Session",
+    session: defaultChestAndBicepsSessions,
+    sessionId: 1,
+  },
+  {
+    name: "Abs HIIT Session",
+    session: defaultHIITSession,
+    sessionId: 2,
+  },
+];

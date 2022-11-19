@@ -1,21 +1,20 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { WorkoutSession } from "./src/containers/WorkoutSession";
 import { ThemeProvider, createTheme } from "@rneui/themed";
-import {
-  defaultChestAndBicepsSessions,
-  defaultHIITSession,
-} from "./src/constants/sessions";
+import "react-native-gesture-handler";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Navigation from "./src/containers/Navigation";
 
 const theme = createTheme({});
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <SafeAreaProvider>
       <ThemeProvider theme={theme}>
         <View style={styles.container}>
-          <WorkoutSession workoutSession={defaultHIITSession} />
+          <Navigation />
           <StatusBar style="auto" />
         </View>
       </ThemeProvider>
@@ -25,9 +24,8 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width: "100%",
+    height: "100%",
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
