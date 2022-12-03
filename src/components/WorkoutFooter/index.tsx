@@ -18,7 +18,7 @@ export const WorkoutFooter: FC<WorkoutFooterProps> = ({
   const insets = useSafeAreaInsets();
   const { theme } = useTheme();
   return (
-    <View style={[styles.wrapper, { paddingBottom: insets.bottom }]}>
+    <View style={[styles.wrapper, { paddingBottom: insets.bottom + 12 }]}>
       <DoneButton
         onPress={gotoNextStep}
         isTimerBased={excercise.isTimerBased}
