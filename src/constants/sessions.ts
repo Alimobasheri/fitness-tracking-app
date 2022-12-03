@@ -17,6 +17,10 @@ import {
   SHOULDERS_EXCERCISES,
   TRICEPS_EXCERCISES,
 } from "./excercises";
+import ChestsAndBicepsImage from "../../assets/Sessions-images/chests-biceps.jpeg";
+import AbsImage from "../../assets/Sessions-images/abs.webp";
+import LegsAndBackImage from "../../assets/Sessions-images/legs-back.jpeg";
+import ShouldrsTricepsImage from "../../assets/Sessions-images/shoulder-triceps.webp";
 
 export const defaultChestAndBicepsSessions: WorkoutSessions = {
   restTime: 40,
@@ -267,20 +271,24 @@ export const DEFAULT_SESSIONS: WorkoutSessionObject[] = [
     name: "Chest And Biceps",
     session: defaultChestAndBicepsSessions,
     sessionId: 1,
+    imageSrc: ChestsAndBicepsImage,
   },
   {
     name: "Abs HIIT",
     session: defaultHIITSession,
     sessionId: 2,
+    imageSrc: AbsImage,
   },
   {
     name: "Legs And Back",
     session: defaultLegsAndBackSessions,
     sessionId: 3,
+    imageSrc: LegsAndBackImage,
   },
   {
     name: "Shoulders And Triceps",
     session: defaultShouldersAndTricepsSession,
     sessionId: 4,
+    imageSrc: ShouldrsTricepsImage,
   },
 ];

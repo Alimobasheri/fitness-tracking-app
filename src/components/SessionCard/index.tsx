@@ -31,6 +31,7 @@ const SessionCard: FC<SessionCardProps> = ({
           backgroundColor: theme.colors.primary,
         }}
       >
+        {session.imageSrc && <Card.Image source={session.imageSrc} />}
         <Text h4 style={{ color: theme.colors.white }}>
           {session.name}
         </Text>

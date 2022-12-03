@@ -10,4 +10,5 @@ export interface WorkoutSessionObject {
   name: string;
   session: WorkoutSessions;
   sessionId: number;
+  imageSrc?: any;
 }
