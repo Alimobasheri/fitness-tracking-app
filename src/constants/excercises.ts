@@ -1,5 +1,14 @@
 import { Excercise } from "../types/excercise";
-import { BICEPS, CHESTS } from "../types/body";
+import {
+  BACK,
+  BICEPS,
+  CALFS,
+  CHESTS,
+  Glutes,
+  LEGS,
+  Shoulders,
+  TRICEPS,
+} from "../types/body";
 import DumbellsBenchChestsPressImage from "../../assets/excercise-images/dumbell-chest-press.mov.gif";
 import TRXChestsPress from "../../assets/excercise-images/TRX-Chest-Press.gif";
 import DumbellsBenchChestsFlye from "../../assets/excercise-images/dumbells-chests-fly.gif";
@@ -131,5 +140,209 @@ export const BICEPS_EXCERCISES: IExcerciseList = {
     instructions: ["Repeat."],
     isSuperSet: false,
     imageSrc: CableSingleBicepCurl,
+  },
+};
+
+export const LEGS_EXCERCISES: IExcerciseList = {
+  "TRX Jump Squats": {
+    name: "TRX Jump Squats",
+    bodyPart: LEGS,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "Dumbell Loaded Squats": {
+    name: "Dumbell Loaded Squats",
+    bodyPart: LEGS,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "TRX Dumbell Loaded Step-Back Lunge": {
+    name: "TRX Dumbell Loaded Step-Back Lunge",
+    bodyPart: LEGS,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "TRX Hamstring Curl": {
+    name: "TRX Hamstring Curl",
+    bodyPart: [LEGS, Glutes],
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "Dumbell Hip Thrusters": {
+    name: "Dumbell Hip Thrusters",
+    bodyPart: [LEGS, Glutes],
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "TRX Standing Calf Raises": {
+    name: "TRX Standing Calf Raises",
+    bodyPart: [LEGS, CALFS],
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "Dumbell Stiff-leg Deadlift": {
+    name: "Dumbell Stiff-leg Deadlift",
+    bodyPart: LEGS,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+};
+
+export const BACK_EXCERCISES: IExcerciseList = {
+  "TRX Dumbell Power Pulls": {
+    name: "TRX Dumbell Power Pulls",
+    bodyPart: BACK,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "Band Single-hand Row from Pull-up Bar": {
+    name: "Band Single-hand Row from Pull-up Bar",
+    bodyPart: BACK,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "Bar Pull Up": {
+    name: "Bar Pull Up",
+    bodyPart: BACK,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "TRX Single-Hand Row": {
+    name: "TRX Single-Hand Row",
+    bodyPart: BACK,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "Dumbell Single-Hand Row": {
+    name: "Dumbell Single-Hand Row",
+    bodyPart: BACK,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "Dumbell Rows": {
+    name: "Dumbell Rows",
+    bodyPart: BACK,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+};
+
+export const SHOULDERS_EXCERCISES: IExcerciseList = {
+  "TRX Shoulders Press": {
+    name: "TRX Shoulders Press",
+    bodyPart: Shoulders,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "Dumbells Shoulders Press": {
+    name: "Dumbells Shoulders Press",
+    bodyPart: Shoulders,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "Band Shoulders Press": {
+    name: "Band Shoulders Press",
+    bodyPart: Shoulders,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "Dumbells Shoulders Front Raises": {
+    name: "Dumbells Shoulders Front Raises",
+    bodyPart: Shoulders,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "TRX Shoulders Front Raises": {
+    name: "TRX Shoulders Front Raises",
+    bodyPart: Shoulders,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "Band Shoulders Front Raises": {
+    name: "Band Shoulders Front Raises",
+    bodyPart: Shoulders,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "Dumbells Bent Over Reverse Fly": {
+    name: "Dumbells Bent Over Reverse Fly",
+    bodyPart: Shoulders,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "Bands Bent Over Reverse Fly": {
+    name: "Bands Bent Over Reverse Fly",
+    bodyPart: Shoulders,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "TRX Single-Hand Lateral Raises": {
+    name: "TRX Single-Hand Lateral Raises",
+    bodyPart: Shoulders,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "Dumbells Lateral Raises": {
+    name: "Dumbells Lateral Raises",
+    bodyPart: Shoulders,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "Bands Lateral Raises": {
+    name: "Bands Lateral Raises",
+    bodyPart: Shoulders,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "Half-kneeling Archer Row": {
+    name: "Half-kneeling Archer Row",
+    bodyPart: Shoulders,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "Dumbells Shrugs": {
+    name: "Dumbells Shrugs",
+    bodyPart: Shoulders,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+};
+
+export const TRICEPS_EXCERCISES: IExcerciseList = {
+  "Dumbells Floor Press": {
+    name: "Dumbells Floor Press",
+    bodyPart: TRICEPS,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "Bands Triceps Single-hand Pushdown": {
+    name: "Bands Triceps Single-hand Pushdown",
+    bodyPart: TRICEPS,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "Dumbell Isolated Triceps Extension": {
+    name: "Dumbell Isolated Triceps Extension",
+    bodyPart: TRICEPS,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  Skullcrushers: {
+    name: "Skullcrushers",
+    bodyPart: TRICEPS,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "TRX Triceps Press": {
+    name: "TRX Triceps Press",
+    bodyPart: TRICEPS,
+    instructions: ["Repeat."],
+    isSuperSet: false,
+  },
+  "Band Overhead Triceps Extension": {
+    name: "Band Overhead Triceps Extension",
+    bodyPart: TRICEPS,
+    instructions: ["Repeat."],
+    isSuperSet: false,
   },
 };

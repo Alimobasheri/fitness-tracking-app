@@ -31,7 +31,7 @@ const SessionOverview: FC<SessionOverviewProps> = ({
           {!excercise.isSuperSet && (
             <Image
               source={excercise.imageSrc}
-              style={{ width: 50, height: 50, resizeMode: "cover" }}
+              style={{ width: 50, height: 100, resizeMode: "cover" }}
             />
           )}
           <ListItem.Content>
@@ -61,7 +61,7 @@ const SessionOverview: FC<SessionOverviewProps> = ({
             >
               <Image
                 source={exc.imageSrc}
-                style={{ width: 50, height: 50, resizeMode: "cover" }}
+                style={{ width: 70, height: 100, resizeMode: "cover" }}
               />
               <ListItem.Content>
                 <ListItem.Title>{exc.name}</ListItem.Title>
