@@ -15,7 +15,7 @@ export const useWorkoutSteps = ({
     callbackFn: (exc: Excercise[], i: number) => Excercise[]
   ) => {
     let newArr: any[] = [];
-    for (let i: number = 0; i < num - 1; i++) {
+    for (let i: number = 0; i < num; i++) {
       newArr = newArr.concat(callbackFn(array, i));
     }
     return newArr;
@@ -35,8 +35,7 @@ export const useWorkoutSteps = ({
       } else {
         excSteps.push(exc);
       }
-      let setsCount: number = exc.setsCount | 1;
-      excSteps = multiplyArray(excSteps, setsCount, (excs, i) => {
+      excSteps = multiplyArray(excSteps, exc.setsCount || 1, (excs, i) => {
         const excsWithRest: Excercise[] = excs;
         if (restFrequency % (i + 1) === 0) {
           const restExc: Excercise = {

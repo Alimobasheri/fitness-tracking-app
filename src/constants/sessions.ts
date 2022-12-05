@@ -83,7 +83,6 @@ export const defaultLegsAndBackSessions: WorkoutSessions = {
   restTime: 40,
   restFrequency: 1,
   excercises: [
-    { ...LEGS_EXCERCISES["TRX Jump Squats"], setsCount: 3, repsCount: 10 },
     {
       ...LEGS_EXCERCISES["Dumbell Loaded Squats"],
       setsCount: 3,
@@ -91,7 +90,7 @@ export const defaultLegsAndBackSessions: WorkoutSessions = {
     },
     {
       ...LEGS_EXCERCISES["TRX Dumbell Loaded Step-Back Lunge"],
-      setsCount: 2,
+      setsCount: 3,
       repsCount: 12,
     },
     {
