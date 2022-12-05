@@ -29,8 +29,8 @@ export const defaultChestAndBicepsSessions: WorkoutSessions = {
     {
       name: "Chest Press & Chest Fly Combined",
       bodyPart: CHESTS,
-      setsCount: 2,
-      repsCount: 12,
+      setsCount: 3,
+      repsCount: 8,
       isSuperSet: true,
       superSetExcercises: [
         CHESTS_EXCERCISES["Dumbells Bench Chests Press"],
@@ -43,8 +43,8 @@ export const defaultChestAndBicepsSessions: WorkoutSessions = {
       name: "Upper-Chests & Lower-Chests Combined",
       bodyPart: CHESTS,
       isSuperSet: true,
-      setsCount: 2,
-      repsCount: 12,
+      setsCount: 3,
+      repsCount: 8,
       superSetExcercises: [
         CHESTS_EXCERCISES["Dumbells Incline Chest Press"],
         CHESTS_EXCERCISES["Dumbells Decline Chest Press"],
@@ -56,8 +56,8 @@ export const defaultChestAndBicepsSessions: WorkoutSessions = {
       name: "Biceps Curls Combined",
       bodyPart: BICEPS,
       isSuperSet: true,
-      setsCount: 2,
-      repsCount: 12,
+      setsCount: 3,
+      repsCount: 8,
       superSetExcercises: [
         BICEPS_EXCERCISES["Dumbells Biceps Curl"],
         BICEPS_EXCERCISES["Bands Biceps Curl"],
@@ -68,8 +68,8 @@ export const defaultChestAndBicepsSessions: WorkoutSessions = {
       name: "Biceps Hammer & Curls Combined",
       bodyPart: BICEPS,
       isSuperSet: true,
-      setsCount: 2,
-      repsCount: 12,
+      setsCount: 3,
+      repsCount: 8,
       superSetExcercises: [
         BICEPS_EXCERCISES["Dumbells Hammer Biceps Curl"],
         BICEPS_EXCERCISES["TRX Hammer Biceps Curl"],
