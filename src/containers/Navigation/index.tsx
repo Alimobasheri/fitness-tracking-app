@@ -9,6 +9,10 @@ const Navigation = () => {
   const { theme } = useTheme();
   const getScreenOptions = (screenName: string) => {
     switch (screenName) {
+      case "Home":
+        return {
+          headerShown: false
+        }
       case "Session":
         return {
           headerStyle: {
