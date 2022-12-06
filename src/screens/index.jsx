@@ -23,7 +23,7 @@ export const SCREENS = [
 export const HOME_TAB_SCREENS = [
   {
     name: "SessionsList",
-    title: "Workout Sessions",
+    title: "Sessions",
     component: SessionsListScreen,
   },
 ]
