@@ -1,10 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View } from "react-native";
+import { Platform, StyleSheet, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ThemeProvider, createTheme } from "@rneui/themed";
 import "react-native-gesture-handler";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Navigation from "./src/containers/Navigation";
+import * as serviceWorkerRegistration from "./src/serviceWorkerRegisteration";
 
 const theme = createTheme({});
 const Stack = createNativeStackNavigator();
@@ -29,3 +30,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
 });
+
+serviceWorkerRegistration.register();
