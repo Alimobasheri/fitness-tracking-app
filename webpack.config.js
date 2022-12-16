@@ -13,10 +13,18 @@ module.exports = async function (env, argv) {
       babel: {
         dangerouslyAddModulePathsToTranspile: ["@rneui/base", "@rneui/themed"],
       },
+      resolve: {
+        alias: {
+          "lottie-react-native": "react-native-web-lottie",
+        },
+      },
     },
     argv
   );
-
+  config.resolve.alias = {
+    ...config.resolve.alias,
+    "lottie-react-native": "react-native-web-lottie",
+  };
   if (isEnvProduction) {
     config.plugins.push(
       // Generate a service worker script that will precache, and keep up to date,
