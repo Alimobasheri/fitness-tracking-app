@@ -1,15 +1,20 @@
+import { useTheme } from "@rneui/themed";
 import { View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import SessionsList from "../../containers/SessionsList";
 import useGetSession from "../../core/hooks/useGetSessions";
 import { WorkoutSessions } from "../../types/workout";
 
 export const SessionsListScreen = ({ route, navigation }) => {
-  const insets = useSafeAreaInsets();
   const sessions: WorkoutSessions = useGetSession();
+  const { theme } = useTheme();
 
   return (
-    <View style={{ flex: 1, marginBottom: insets.bottom }}>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: theme.colors.white,
+      }}
+    >
       <SessionsList sessions={sessions} navigate={navigation.navigate} />
     </View>
   );

@@ -1,6 +1,6 @@
-import { Card, Text, useTheme } from "@rneui/themed";
+import { Text, useTheme } from "@rneui/themed";
 import { FC, useCallback } from "react";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, View, Image } from "react-native";
 import { WorkoutSessionObject } from "../../types/workout";
 import styles from "./styles";
 
@@ -25,17 +25,24 @@ const SessionCard: FC<SessionCardProps> = ({
       activeOpacity={0.7}
       onPress={handlePress}
     >
-      <Card
-        containerStyle={{
+      <View
+        style={{
           ...styles.cardContainer,
           backgroundColor: theme.colors.primary,
         }}
       >
-        {session.imageSrc && <Card.Image source={session.imageSrc} />}
-        <Text h4 style={{ color: theme.colors.white }}>
+        {session.imageSrc && (
+          <Image source={session.imageSrc} style={styles.cardImage} />
+        )}
+        <Text
+          h4
+          style={{ color: theme.colors.white, width: "40%" }}
+          adjustsFontSizeToFit
+          numberOfLines={1}
+        >
           {session.name}
         </Text>
-      </Card>
+      </View>
     </TouchableOpacity>
   );
 };
