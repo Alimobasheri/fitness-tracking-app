@@ -1,26 +1,28 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+const { width } = Dimensions.get("window");
 
 export default StyleSheet.create({
   wrapper: {
-    marginHorizontal: 12,
     marginVertical: 12,
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
+    // justifyContent: "flex-start",
+    // alignItems: "flex-start",
+    flex: 1,
+    paddingHorizontal: 12,
   },
   cardContainer: {
     borderRadius: 12,
     borderWidth: 0,
     flexDirection: "row",
     justifyContent: "flex-start",
+    padding: width / 40,
     alignItems: "center",
-    width: "100%",
-    minHeight: 200,
+    width: (width / 3) * 2,
   },
   cardImage: {
-    margin: 20,
-    width: 150,
-    height: 150,
+    marginRight: 12,
+    width: width / 5,
+    height: width / 5,
     resizeMode: "cover",
-    borderRadius: 15,
+    borderRadius: 10,
   },
 });

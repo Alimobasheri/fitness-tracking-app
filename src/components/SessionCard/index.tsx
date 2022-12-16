@@ -36,7 +36,7 @@ const SessionCard: FC<SessionCardProps> = ({
         )}
         <Text
           h4
-          style={{ color: theme.colors.white, width: "40%" }}
+          style={{ color: theme.colors.white, width: "60%" }}
           adjustsFontSizeToFit
           numberOfLines={1}
         >
