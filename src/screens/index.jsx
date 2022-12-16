@@ -1,4 +1,5 @@
 import { HomeScreen } from "./HomeScreen";
+import { ProfileScreen } from "./ProfileScreen";
 import { SessionOverviewScreen } from "./SessionOverviewScreen";
 import { SessionsListScreen } from "./SessionsListScreen";
 import { WorkoutSessionScreeen } from "./WorkoutSessionScreen";
@@ -7,7 +8,7 @@ export const SCREENS = [
   {
     name: "Home",
     title: "Home",
-    component: HomeScreen
+    component: HomeScreen,
   },
   {
     name: "SessionOverview",
@@ -23,7 +24,12 @@ export const SCREENS = [
 export const HOME_TAB_SCREENS = [
   {
     name: "SessionsList",
-    title: "Sessions",
+    title: "Welcome MirAli!",
     component: SessionsListScreen,
   },
-]
+  {
+    name: "Profile",
+    title: "Profile",
+    component: ProfileScreen,
+  },
+];
