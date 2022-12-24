@@ -7,7 +7,7 @@ import { WorkoutSessionObject } from "../../types/workout";
 export const SessionOverviewScreen = ({ route, navigation }) => {
   const { sessionId } = route.params;
   const insets = useSafeAreaInsets();
-  const session: WorkoutSessionObject = useGetSession(sessionId);
+  const session: WorkoutSessionObject = useGetSession(parseInt(sessionId));
   return (
     <View
       style={{
