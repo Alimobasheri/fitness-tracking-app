@@ -9,7 +9,7 @@ export const HomeScreen = ({ route, navigation }) => {
   const { theme } = useTheme();
   const tabBarIcon = (tabRoute, { focused, color, size }) => {
     switch (tabRoute.name) {
-      case "SessionsList":
+      case "Feed":
         return <Icon name="dumbbell" type="font-awesome-5" color={color} />;
       case "Profile":
         return <Icon name="user" type="font-awesome-5" color={color} />;

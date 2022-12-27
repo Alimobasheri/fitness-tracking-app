@@ -6,7 +6,7 @@ export const linking: LinkingOptions<any> = {
     screens: {
       Home: {
         screens: {
-          SessionsList: "/sessions",
+          Feed: "/feed",
           Profile: "/profile",
         },
       },

@@ -1,7 +1,7 @@
+import { FeedScreen } from "./FeedScreen";
 import { HomeScreen } from "./HomeScreen";
 import { ProfileScreen } from "./ProfileScreen";
 import { SessionOverviewScreen } from "./SessionOverviewScreen";
-import { SessionsListScreen } from "./SessionsListScreen";
 import { WorkoutSessionScreeen } from "./WorkoutSessionScreen";
 
 export const SCREENS = [
@@ -23,9 +23,9 @@ export const SCREENS = [
 
 export const HOME_TAB_SCREENS = [
   {
-    name: "SessionsList",
+    name: "Feed",
     title: "Welcome MirAli!",
-    component: SessionsListScreen,
+    component: FeedScreen,
   },
   {
     name: "Profile",

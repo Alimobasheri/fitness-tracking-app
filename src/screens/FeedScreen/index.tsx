@@ -4,7 +4,7 @@ import SessionsList from "../../containers/SessionsList";
 import useGetSession from "../../core/hooks/useGetSessions";
 import { WorkoutSessions } from "../../types/workout";
 
-export const SessionsListScreen = ({ route, navigation }) => {
+export const FeedScreen = ({ route, navigation }) => {
   const sessions: WorkoutSessions = useGetSession();
   const { theme } = useTheme();
 
