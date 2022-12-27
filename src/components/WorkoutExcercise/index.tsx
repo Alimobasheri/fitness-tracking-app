@@ -18,9 +18,11 @@ import styles from "./styles";
 
 interface WorkoutExcerciseProps {
   excercise: Excercise;
+  nextExcercise: Excercise;
 }
 export const WorkoutExcercise: FC<WorkoutExcerciseProps> = ({
   excercise,
+  nextExcercise,
 }: WorkoutExcerciseProps) => {
   const { theme } = useTheme();
   const animationIndex = useSharedValue(0);
@@ -152,14 +154,58 @@ export const WorkoutExcercise: FC<WorkoutExcerciseProps> = ({
               source={DrinkingWaterLottie}
             />
           )}
-          {!excercise.isRest && (
-            <View style={styles.excStatWrapper}>
+          <View style={styles.excStatWrapper}>
+            <>
+              {!excercise.isRest && (
+                <>
+                  <Animated.View style={wrappersStyle}>
+                    <Icon
+                      size={20}
+                      type={"material-community"}
+                      name={"weight-lifter"}
+                      color={theme.colors.success}
+                      containerStyle={{ marginRight: 6 }}
+                    />
+                    <Text
+                      h4
+                      h4Style={{
+                        fontSize: 16,
+                        color: theme.colors.white,
+                        fontWeight: "400",
+                      }}
+                    >
+                      Sets: {excercise.setNumber} of {excercise.setsCount}
+                    </Text>
+                  </Animated.View>
+                  {excercise.repsCount && (
+                    <Animated.View style={wrappersStyle}>
+                      <Icon
+                        size={20}
+                        type={"ionicons"}
+                        name={"repeat"}
+                        color={theme.colors.warning}
+                        containerStyle={{ marginRight: 6 }}
+                      />
+                      <Text
+                        h4
+                        h4Style={{
+                          fontSize: 16,
+                          color: theme.colors.white,
+                          fontWeight: "400",
+                        }}
+                      >
+                        Reps: {excercise.repsCount}
+                      </Text>
+                    </Animated.View>
+                  )}
+                </>
+              )}
               <Animated.View style={wrappersStyle}>
                 <Icon
                   size={20}
                   type={"material-community"}
-                  name={"weight-lifter"}
-                  color={theme.colors.success}
+                  name={"boxing-glove"}
+                  color={theme.colors.warning}
                   containerStyle={{ marginRight: 6 }}
                 />
                 <Text
@@ -170,32 +216,11 @@ export const WorkoutExcercise: FC<WorkoutExcerciseProps> = ({
                     fontWeight: "400",
                   }}
                 >
-                  Sets: {excercise.setNumber} of {excercise.setsCount}
+                  Next: {nextExcercise.name}
                 </Text>
               </Animated.View>
-              {excercise.repsCount && (
-                <Animated.View style={wrappersStyle}>
-                  <Icon
-                    size={20}
-                    type={"ionicons"}
-                    name={"repeat"}
-                    color={theme.colors.warning}
-                    containerStyle={{ marginRight: 6 }}
-                  />
-                  <Text
-                    h4
-                    h4Style={{
-                      fontSize: 16,
-                      color: theme.colors.white,
-                      fontWeight: "400",
-                    }}
-                  >
-                    Reps: {excercise.repsCount}
-                  </Text>
-                </Animated.View>
-              )}
-            </View>
-          )}
+            </>
+          </View>
         </View>
       </Animated.View>
     </Pressable>

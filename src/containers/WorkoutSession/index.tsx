@@ -34,7 +34,10 @@ export const WorkoutSession: FC<WorkoutSessionProps> = ({
         numberOfExcercisesLeft={numberOfExcercisesLeft}
         numberOfTotalExcercises={numberOfTotalExcercises}
       />
-      <WorkoutExcercise excercise={workoutSteps[currentExcerciseIndex]} />
+      <WorkoutExcercise
+        excercise={workoutSteps[currentExcerciseIndex]}
+        nextExcercise={workoutSteps[currentExcerciseIndex + 1]}
+      />
       <WorkoutFooter
         gotoNextStep={gotoNextStep}
         excercise={workoutSteps[currentExcerciseIndex]}
