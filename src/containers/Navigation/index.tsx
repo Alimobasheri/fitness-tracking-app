@@ -1,6 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useTheme } from "@rneui/themed";
+import { linking } from "../../constants/linking";
 import { SCREENS } from "../../screens";
 
 const Stack = createNativeStackNavigator();
@@ -9,6 +10,10 @@ const Navigation = () => {
   const { theme } = useTheme();
   const getScreenOptions = (screenName: string) => {
     switch (screenName) {
+      case "Home":
+        return {
+          headerShown: false,
+        };
       case "Session":
         return {
           headerStyle: {
@@ -23,7 +28,7 @@ const Navigation = () => {
     }
   };
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       <Stack.Navigator
         screenOptions={{
           contentStyle: {

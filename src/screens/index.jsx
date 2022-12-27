@@ -1,12 +1,14 @@
+import { FeedScreen } from "./FeedScreen";
+import { HomeScreen } from "./HomeScreen";
+import { ProfileScreen } from "./ProfileScreen";
 import { SessionOverviewScreen } from "./SessionOverviewScreen";
-import { SessionsListScreen } from "./SessionsListScreen";
 import { WorkoutSessionScreeen } from "./WorkoutSessionScreen";
 
 export const SCREENS = [
   {
-    name: "SessionsList",
-    title: "Workout Sessions",
-    component: SessionsListScreen,
+    name: "Home",
+    title: "Home",
+    component: HomeScreen,
   },
   {
     name: "SessionOverview",
@@ -16,5 +18,18 @@ export const SCREENS = [
   {
     name: "Session",
     component: WorkoutSessionScreeen,
+  },
+];
+
+export const HOME_TAB_SCREENS = [
+  {
+    name: "Feed",
+    title: "Welcome MirAli!",
+    component: FeedScreen,
+  },
+  {
+    name: "Profile",
+    title: "Profile",
+    component: ProfileScreen,
   },
 ];
