@@ -60,7 +60,7 @@ export const useWorkoutSteps = ({
     const restSteps = workoutSteps.filter(
       (exc, i) => exc.isRest && i < currentExcerciseIndex
     ).length;
-    return numberOfTotalExcercises - (currentExcerciseIndex - restSteps) - 1;
+    return numberOfTotalExcercises - (currentExcerciseIndex - restSteps);
   }, [currentExcerciseIndex, numberOfTotalExcercises]);
 
   const gotoNextStep = () => {

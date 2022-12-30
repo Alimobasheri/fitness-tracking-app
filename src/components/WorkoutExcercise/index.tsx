@@ -200,25 +200,27 @@ export const WorkoutExcercise: FC<WorkoutExcerciseProps> = ({
                   )}
                 </>
               )}
-              <Animated.View style={wrappersStyle}>
-                <Icon
-                  size={20}
-                  type={"material-community"}
-                  name={"boxing-glove"}
-                  color={theme.colors.warning}
-                  containerStyle={{ marginRight: 6 }}
-                />
-                <Text
-                  h4
-                  h4Style={{
-                    fontSize: 16,
-                    color: theme.colors.white,
-                    fontWeight: "400",
-                  }}
-                >
-                  Next: {nextExcercise.name}
-                </Text>
-              </Animated.View>
+              {!!nextExcercise?.name && (
+                <Animated.View style={wrappersStyle}>
+                  <Icon
+                    size={20}
+                    type={"material-community"}
+                    name={"boxing-glove"}
+                    color={theme.colors.warning}
+                    containerStyle={{ marginRight: 6 }}
+                  />
+                  <Text
+                    h4
+                    h4Style={{
+                      fontSize: 16,
+                      color: theme.colors.white,
+                      fontWeight: "400",
+                    }}
+                  >
+                    Next: {nextExcercise.name}
+                  </Text>
+                </Animated.View>
+              )}
             </>
           </View>
         </View>
