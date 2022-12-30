@@ -65,7 +65,7 @@ export const WorkoutProgress: FC<WorkoutProgressProps> = ({
                 h4
                 h4Style={[styles.leftText, { color: theme.colors.grey2 }]}
               >
-                Excercises
+                Exercises
               </Text>
               <Text
                 h4
