@@ -4,6 +4,7 @@ import { LinearProgress, Text, useTheme } from "@rneui/themed";
 import { LinearGradient } from "expo-linear-gradient";
 import styles from "./styles";
 import numberWithZeroPlace from "../../core/helpers/numberWithZeroPlace";
+import FinishWorkoutButton from "../customs/FinishWorkoutButton";
 
 interface WorkoutProgressProps {
   numberOfExcercisesLeft: number;
@@ -74,6 +75,9 @@ export const WorkoutProgress: FC<WorkoutProgressProps> = ({
                 Left
               </Text>
             </View>
+          </View>
+          <View>
+            <FinishWorkoutButton />
           </View>
         </View>
         <View style={styles.timeWrapper}>
