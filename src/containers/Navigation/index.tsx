@@ -22,6 +22,7 @@ const Navigation = () => {
           },
           headerTintColor: theme.colors.white,
           headerBackTitle: "",
+          headerBackVisible: false,
         };
       default:
         return {};
