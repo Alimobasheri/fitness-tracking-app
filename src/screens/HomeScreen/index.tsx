@@ -10,6 +10,8 @@ export const HomeScreen = ({ route, navigation }) => {
   const tabBarIcon = (tabRoute, { focused, color, size }) => {
     switch (tabRoute.name) {
       case "Feed":
+        return <Icon name="home" type="font-awesome-5" color={color} />;
+      case "Workouts":
         return <Icon name="dumbbell" type="font-awesome-5" color={color} />;
       case "Profile":
         return <Icon name="user" type="font-awesome-5" color={color} />;
