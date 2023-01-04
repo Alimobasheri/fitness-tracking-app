@@ -49,6 +49,7 @@ export const HomeScreen = ({ route, navigation }) => {
     >
       {HOME_TAB_SCREENS.map((screen) => (
         <Tab.Screen
+          key={screen.name}
           name={screen.name}
           component={screen.component}
           options={{
