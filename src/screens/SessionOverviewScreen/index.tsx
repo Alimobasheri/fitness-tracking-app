@@ -1,13 +1,23 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { View, Platform } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { RootStackParamList, SCREEN_NAMES } from "../../constants/navigation";
 import SessionOverview from "../../containers/SessionOverview";
 import useGetSession from "../../core/hooks/useGetSessions";
 import { WorkoutSessionObject } from "../../types/workout";
 
-export const SessionOverviewScreen = ({ route, navigation }) => {
+type SessionOverviewScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  "SessionOverview"
+>;
+
+export const SessionOverviewScreen = ({
+  route,
+  navigation,
+}: SessionOverviewScreenProps) => {
   const { sessionId } = route.params;
   const insets = useSafeAreaInsets();
-  const session: WorkoutSessionObject = useGetSession(parseInt(sessionId));
+  const session: WorkoutSessionObject = useGetSession(sessionId);
   return (
     <View
       style={{

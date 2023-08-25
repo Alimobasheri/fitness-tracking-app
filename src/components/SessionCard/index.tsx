@@ -28,7 +28,7 @@ const SessionCard: FC<SessionCardProps> = ({
       <View
         style={{
           ...styles.cardContainer,
-          backgroundColor: theme.colors.primary,
+          backgroundColor: theme.colors.grey5,
         }}
       >
         {session.imageSrc && (
@@ -36,7 +36,12 @@ const SessionCard: FC<SessionCardProps> = ({
         )}
         <Text
           h4
-          style={{ color: theme.colors.white, width: "60%" }}
+          h4Style={{
+            color: theme.colors.black,
+            width: "60%",
+            fontWeight: "300",
+            fontSize: 18,
+          }}
           adjustsFontSizeToFit
           numberOfLines={1}
         >
