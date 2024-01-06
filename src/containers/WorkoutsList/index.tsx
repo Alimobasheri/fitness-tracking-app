@@ -5,22 +5,27 @@ import EXERCISES from "../../constants/exercises.json";
 import { SCREEN_NAMES } from "../../constants/navigation";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import WorkoutsListFilterModal from "../../components/WorkoutsListFilterModal";
+import { useAppSelector } from "../../core/hooks/reduxHooks";
 
 const ExerciseList = ({ navigation }) => {
   const { theme } = useTheme();
 
   const insets = useSafeAreaInsets();
   const modalRef = useRef();
+
+  const {
+    equipmentFilter,
+    typesFilter,
+    muscleGroupFilter,
+    difficultiesFilter,
+  } = useAppSelector((state) => state.workoutsList);
+
   // State for the search input and the list of exercises
   const [search, setSearch] = useState("");
   const [exercises, setExercises] = useState([]);
 
   // State for the modal and the selected equipment and muscle group filters
   const [showModal, setShowModal] = useState(false);
-  const [typesFilter, setTypesFilter] = useState<string[]>([]);
-  const [equipmentFilter, setEquipmentFilter] = useState<string[]>([]);
-  const [muscleGroupFilter, setMuscleGroupFilter] = useState<string[]>([]);
-  const [difficultiesFilter, setDifficultiesFilter] = useState<string[]>([]);
 
   // Function to fetch the list of exercises from the ExRx API
   const fetchExercises = async () => {
@@ -36,21 +41,58 @@ const ExerciseList = ({ navigation }) => {
     setShowModal(false);
   };
 
-  // Function to select a muscle group filter
-  const selectMuscleGroupFilter = (filter) => {
-    setMuscleGroupFilter(filter);
-  };
-
   // Function to apply the selected filters
   const applyFilters = () => {
-    closeModal();
+    // closeModal();
     fetchExercises();
+    console.log(
+      typesFilter,
+      muscleGroupFilter,
+      equipmentFilter,
+      difficultiesFilter
+    );
+    const isTypesFiltered = typesFilter.length > 0;
+    console.log(
+      "🚀 ~ file: index.tsx:55 ~ applyFilters ~ isTypesFiltered:",
+      isTypesFiltered
+    );
+    const isMuscleGroupsFiltered = muscleGroupFilter.length > 0;
+    console.log(
+      "🚀 ~ file: index.tsx:57 ~ applyFilters ~ isMuscleGroupsFiltered:",
+      isMuscleGroupsFiltered
+    );
+    const isEquipmentsFiltered = equipmentFilter.length > 0;
+    console.log(
+      "🚀 ~ file: index.tsx:59 ~ applyFilters ~ isEquipmentsFiltered:",
+      isEquipmentsFiltered
+    );
+    const isDifficultiesFiltered = difficultiesFilter.length > 0;
+    console.log(
+      "🚀 ~ file: index.tsx:61 ~ applyFilters ~ isDifficultiesFiltered:",
+      isDifficultiesFiltered
+    );
+    const filteredExercises = EXERCISES.exercises.filter((exc) => {
+      if (isTypesFiltered && !typesFilter.includes(exc.type)) return false;
+      if (isMuscleGroupsFiltered && !muscleGroupFilter.includes(exc.muscle))
+        return false;
+      if (isEquipmentsFiltered && !equipmentFilter.includes(exc.equipment))
+        return false;
+      if (
+        isDifficultiesFiltered &&
+        !difficultiesFilter.includes(exc.difficulty)
+      )
+        return false;
+      return true;
+    });
+    setExercises(
+      filteredExercises.sort((a, b) => a.name.localeCompare(b.name))
+    );
   };
 
   // Function to reset the filters
   const resetFilters = () => {
-    setEquipmentFilter([]);
-    setMuscleGroupFilter("");
+    // setEquipmentFilter([]);
+    // setMuscleGroupFilter("");
     closeModal();
     fetchExercises();
   };
@@ -82,7 +124,9 @@ const ExerciseList = ({ navigation }) => {
           }}
         >
           <Text>{item.name}</Text>
-          <Text>{item.muscleGroup}</Text>
+          <Text style={{ color: theme.colors.grey3, marginTop: 6 }}>
+            {item.muscle}
+          </Text>
         </Card>
         {/* </Transition> */}
       </TouchableOpacity>
@@ -152,19 +196,7 @@ const ExerciseList = ({ navigation }) => {
         />
       </View>
       {/* Modal for selecting filters */}
-      <WorkoutsListFilterModal
-        ref={modalRef}
-        {...{
-          typesFilter,
-          setTypesFilter,
-          equipmentFilter,
-          setEquipmentFilter,
-          muscleGroupFilter,
-          setMuscleGroupFilter,
-          difficultiesFilter,
-          setDifficultiesFilter,
-        }}
-      />
+      <WorkoutsListFilterModal ref={modalRef} applyFilters={applyFilters} />
       {/* FlatList to display the exercises */}
       <FlatList
         // contentContainerStyle={{
