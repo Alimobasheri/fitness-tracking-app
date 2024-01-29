@@ -26,8 +26,8 @@ const SessionOverview: FC<SessionOverviewProps> = ({
     navigate("Session", { sessionId: session.sessionId });
   const rowRenderer = ({ item: excercise }: SessionOverviewRowProps) => {
     return (
-      <View>
-        <ListItem key={excercise.name} bottomDivider={!excercise.isSuperSet}>
+      <View key={excercise.name}>
+        <ListItem bottomDivider={!excercise.isSuperSet}>
           {!excercise.isSuperSet && (
             <Image
               source={excercise.imageSrc}
@@ -58,6 +58,7 @@ const SessionOverview: FC<SessionOverviewProps> = ({
               containerStyle={{
                 paddingLeft: 24,
               }}
+              key={i}
             >
               <Image
                 source={exc.imageSrc}

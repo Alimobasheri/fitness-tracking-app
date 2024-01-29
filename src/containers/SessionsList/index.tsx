@@ -33,13 +33,28 @@ const SessionsList: FC<SessionsListProps> = ({
           h4Style={{
             fontWeight: "400",
             lineHeight: 30,
-            marginBottom: 12,
+            marginBottom: 6,
           }}
         >
           Overview Sessions
         </Text>
+        <Text
+          style={{
+            lineHeight: 22,
+            fontSize: 14,
+            fontWeight: "200",
+            marginBottom: 12,
+            marginLeft: 12,
+          }}
+          numberOfLines={4}
+        >
+          What are you looking for today?
+        </Text>
       </View>
       <FlatList
+        contentContainerStyle={{
+          marginLeft: 12,
+        }}
         data={sessions}
         renderItem={({ item }) => (
           <SessionCard session={item} redirect={redirect} />

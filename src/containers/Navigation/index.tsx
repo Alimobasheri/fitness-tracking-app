@@ -2,9 +2,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useTheme } from "@rneui/themed";
 import { linking } from "../../constants/linking";
+import { RootStackParamList } from "../../constants/navigation";
 import { SCREENS } from "../../screens";
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const Navigation = () => {
   const { theme } = useTheme();
@@ -33,14 +34,15 @@ const Navigation = () => {
       <Stack.Navigator
         screenOptions={{
           contentStyle: {
-            backgroundColor: "#fff",
+            backgroundColor: theme.colors.background,
           },
           headerShadowVisible: false,
         }}
       >
         {SCREENS.map((screen) => (
           <Stack.Screen
-            name={screen.name}
+            key={screen.name}
+            name={screen.name as keyof RootStackParamList}
             component={screen.component}
             options={{ title: screen.title, ...getScreenOptions(screen.name) }}
           />

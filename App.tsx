@@ -6,6 +6,9 @@ import "react-native-gesture-handler";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Navigation from "./src/containers/Navigation";
 import * as serviceWorkerRegistration from "./src/serviceWorkerRegisteration";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import { Provider } from "react-redux";
+import { store } from "./src/core/store";
 
 const theme = createTheme({});
 const Stack = createNativeStackNavigator();
@@ -13,12 +16,16 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <SafeAreaProvider>
-      <ThemeProvider theme={theme}>
-        <View style={styles.container}>
-          <Navigation />
-          <StatusBar style="auto" />
-        </View>
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <BottomSheetModalProvider>
+            <View style={styles.container}>
+              <Navigation />
+              <StatusBar style="auto" />
+            </View>
+          </BottomSheetModalProvider>
+        </ThemeProvider>
+      </Provider>
     </SafeAreaProvider>
   );
 }

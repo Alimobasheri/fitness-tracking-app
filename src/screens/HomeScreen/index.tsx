@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Icon, Text, useTheme } from "@rneui/themed";
 import { Platform } from "react-native";
-import { HOME_TAB_SCREENS } from "..";
+import { HOME_TAB_SCREENS } from "../homeTabScreens";
 
 const Tab = createBottomTabNavigator();
 
@@ -10,6 +10,8 @@ export const HomeScreen = ({ route, navigation }) => {
   const tabBarIcon = (tabRoute, { focused, color, size }) => {
     switch (tabRoute.name) {
       case "Feed":
+        return <Icon name="home" type="font-awesome-5" color={color} />;
+      case "WorkoutsAndPlans":
         return <Icon name="dumbbell" type="font-awesome-5" color={color} />;
       case "Profile":
         return <Icon name="user" type="font-awesome-5" color={color} />;

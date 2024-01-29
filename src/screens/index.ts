@@ -1,8 +1,12 @@
+import { SCREEN_NAMES } from "../constants/navigation";
+import { ExerciseScreen } from "./Exercise";
 import { FeedScreen } from "./FeedScreen";
 import { HomeScreen } from "./HomeScreen";
 import { ProfileScreen } from "./ProfileScreen";
 import { SessionOverviewScreen } from "./SessionOverviewScreen";
 import { WorkoutSessionScreeen } from "./WorkoutSessionScreen";
+import { WorkoutsAndPlansScreen } from "./WorkoutsAndPlansScreen";
+import ExercisesListScreen from "./ExercisesList";
 
 export const SCREENS = [
   {
@@ -19,17 +23,13 @@ export const SCREENS = [
     name: "Session",
     component: WorkoutSessionScreeen,
   },
-];
-
-export const HOME_TAB_SCREENS = [
   {
-    name: "Feed",
-    title: "Welcome MirAli!",
-    component: FeedScreen,
+    name: SCREEN_NAMES.EXERCISE,
+    component: ExerciseScreen,
   },
   {
-    name: "Profile",
-    title: "Profile",
-    component: ProfileScreen,
+    name: SCREEN_NAMES.EXERCISES_LIST,
+    title: "All Exercises",
+    component: ExercisesListScreen,
   },
 ];
