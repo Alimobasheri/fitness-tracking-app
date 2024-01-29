@@ -45,32 +45,10 @@ const ExerciseList = ({ navigation }) => {
   const applyFilters = () => {
     // closeModal();
     fetchExercises();
-    console.log(
-      typesFilter,
-      muscleGroupFilter,
-      equipmentFilter,
-      difficultiesFilter
-    );
     const isTypesFiltered = typesFilter.length > 0;
-    console.log(
-      "🚀 ~ file: index.tsx:55 ~ applyFilters ~ isTypesFiltered:",
-      isTypesFiltered
-    );
     const isMuscleGroupsFiltered = muscleGroupFilter.length > 0;
-    console.log(
-      "🚀 ~ file: index.tsx:57 ~ applyFilters ~ isMuscleGroupsFiltered:",
-      isMuscleGroupsFiltered
-    );
     const isEquipmentsFiltered = equipmentFilter.length > 0;
-    console.log(
-      "🚀 ~ file: index.tsx:59 ~ applyFilters ~ isEquipmentsFiltered:",
-      isEquipmentsFiltered
-    );
     const isDifficultiesFiltered = difficultiesFilter.length > 0;
-    console.log(
-      "🚀 ~ file: index.tsx:61 ~ applyFilters ~ isDifficultiesFiltered:",
-      isDifficultiesFiltered
-    );
     const filteredExercises = EXERCISES.exercises.filter((exc) => {
       if (isTypesFiltered && !typesFilter.includes(exc.type)) return false;
       if (isMuscleGroupsFiltered && !muscleGroupFilter.includes(exc.muscle))
